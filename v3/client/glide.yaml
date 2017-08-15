@@ -1,0 +1,14 @@
+package: github.com/golovers/grpc/v3/client
+import:
+- package: github.com/grpc-ecosystem/grpc-gateway
+  version: ^1.2.2
+  subpackages:
+  - runtime
+- package: github.com/golovers/grpc
+  subpackages:
+  - v3/api-golang/gr/greeting/v1
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: google.golang.org/grpc
+  version: ^1.5.1

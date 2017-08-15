@@ -1,0 +1,87 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "greeting/v1/rpc.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/greeting": {
+      "get": {
+        "summary": "Say greeting base on name and type",
+        "operationId": "Say",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/greetingGreetingResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Name of person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "description": "Greeting type.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Greetings"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "greetingGreeting": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "greetingGreetingRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name of person"
+        },
+        "type": {
+          "type": "string",
+          "title": "Greeting type"
+        }
+      },
+      "title": "Greeting request"
+    },
+    "greetingGreetingResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/greetingGreeting"
+        }
+      }
+    }
+  }
+}

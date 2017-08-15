@@ -1,0 +1,1 @@
+protoc -I ./ -I /usr/local/include ./*.proto --go_out=plugins=grpc:./

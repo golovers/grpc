@@ -1,0 +1,21 @@
+package: github.com/golovers/grpc/v4/client
+import:
+- package: github.com/grpc-ecosystem/go-grpc-prometheus
+  version: ~1.1.0
+- package: github.com/grpc-ecosystem/grpc-gateway
+  version: ~1.2.2
+  subpackages:
+  - runtime
+- package: github.com/mwitkow/go-grpc-middleware
+- package: github.com/prometheus/client_golang
+  version: ~0.8.0
+  subpackages:
+  - prometheus/promhttp
+- package: github.com/golovers/grpc
+  subpackages:
+  - v4/api-golang/gr/greeting/v1
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: google.golang.org/grpc
+  version: ~1.5.1

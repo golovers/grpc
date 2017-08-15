@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package gosharing.grpc.greeting;
+
+service Greetings {
+    rpc Say (GreetingRequest) returns (GreetingResponse) {
+    }
+}
+
+message GreetingRequest {
+    string name = 1;
+    string type = 2;
+}
+
+message GreetingResponse {
+    Greeting message = 1;
+}
+
+message Greeting {
+    string title = 1;
+    string message = 2;
+}

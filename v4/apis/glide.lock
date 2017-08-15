@@ -1,0 +1,34 @@
+hash: 29417935b0069c4c22bdff82d3849124338e6d807a0637b118b510f0dd8dcf5e
+updated: 2017-08-12T23:36:04.477343356+07:00
+imports:
+- name: github.com/golang/glog
+  version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
+- name: github.com/golang/protobuf
+  version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
+  subpackages:
+  - proto
+  - ptypes/duration
+  - ptypes/empty
+  - ptypes/struct
+  - ptypes/timestamp
+  - ptypes/any
+- name: github.com/grpc-ecosystem/grpc-gateway
+  version: 589b126116b5fc961939b3e156c29e4d9d58222f
+  subpackages:
+  - runtime
+  - third_party/googleapis/google/api
+  - utilities
+- name: golang.org/x/net
+  version: 1c05540f6879653db88113bc4a2b70aec4bd491f
+  subpackages:
+  - context
+- name: google.golang.org/genproto
+  version: 09f6ed296fc66555a25fe4ce95173148778dfa85
+  subpackages:
+  - googleapis/api/annotations
+- name: google.golang.org/grpc
+  version: d2e1b51f33ff8c5e4a15560ff049d200e83726c5
+  subpackages:
+  - codes
+  - grpclog
+testImports: []

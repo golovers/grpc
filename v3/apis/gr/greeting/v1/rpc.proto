@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package gosharing.grpc.greeting;
+
+service Greetings {
+    // Say greeting base on name and type
+    rpc Say (GreetingRequest) returns (GreetingResponse) {
+        option (google.api.http) = { get: "/v1/greeting"};
+    }
+}
+
+// Greeting request
+message GreetingRequest {
+    // Name of person
+    string name = 1;
+    // Greeting type
+    string type = 2;
+}
+
+message GreetingResponse {
+    Greeting message = 1;
+}
+
+message Greeting {
+    string title = 1;
+    string message = 2;
+}

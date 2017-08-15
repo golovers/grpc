@@ -1,0 +1,92 @@
+hash: 4c07d591509a991161c2f669b3cf30afbb406c14a868089a9174202faec878e8
+updated: 2017-08-12T23:39:50.798461689+07:00
+imports:
+- name: github.com/beorn7/perks
+  version: 4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9
+  subpackages:
+  - quantile
+- name: github.com/golang/protobuf
+  version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
+  subpackages:
+  - jsonpb
+  - proto
+  - ptypes/struct
+  - protoc-gen-go/descriptor
+  - ptypes/any
+- name: github.com/grpc-ecosystem/go-grpc-prometheus
+  version: 6b7015e65d366bf3f19b2b2a000a831940f0f7e0
+- name: github.com/grpc-ecosystem/grpc-gateway
+  version: 589b126116b5fc961939b3e156c29e4d9d58222f
+  subpackages:
+  - runtime
+  - runtime/internal
+  - utilities
+- name: github.com/matttproud/golang_protobuf_extensions
+  version: c12348ce28de40eed0136aa2b644d0ee0650e56c
+  subpackages:
+  - pbutil
+- name: github.com/mwitkow/go-grpc-middleware
+  version: f63a7dfb64c138bd93d5c5b896d8b33c4b08e000
+- name: github.com/prometheus/client_golang
+  version: c5b7fccd204277076155f10851dad72b76a49317
+  subpackages:
+  - prometheus/promhttp
+  - prometheus
+- name: github.com/prometheus/client_model
+  version: 6f3806018612930941127f2a7c6c453ba2c527d2
+  subpackages:
+  - go
+- name: github.com/prometheus/common
+  version: 61f87aac8082fa8c3c5655c7608d7478d46ac2ad
+  subpackages:
+  - expfmt
+  - model
+  - internal/bitbucket.org/ww/goautoneg
+- name: github.com/prometheus/procfs
+  version: e645f4e5aaa8506fc71d6edbc5c4ff02c04c46f2
+  subpackages:
+  - xfs
+- name: github.com/golovers/grpc
+  version: 6d7aaabff8437cdbd211d6fe6435c2585c8af29b
+  subpackages:
+  - v4/api-golang/gr/greeting/v1
+  - v4/greeting/service
+- name: golang.org/x/net
+  version: 1c05540f6879653db88113bc4a2b70aec4bd491f
+  subpackages:
+  - context
+  - http2
+  - trace
+  - http2/hpack
+  - idna
+  - lex/httplex
+  - internal/timeseries
+- name: golang.org/x/text
+  version: b19bf474d317b857955b12035d2c5acb57ce8b01
+  subpackages:
+  - secure/bidirule
+  - unicode/norm
+  - transform
+  - unicode/bidi
+- name: google.golang.org/genproto
+  version: 09f6ed296fc66555a25fe4ce95173148778dfa85
+  subpackages:
+  - googleapis/api/annotations
+  - googleapis/rpc/status
+- name: google.golang.org/grpc
+  version: b8669c35455183da6d5c474ea6e72fbf55183274
+  subpackages:
+  - codes
+  - grpclog
+  - metadata
+  - credentials
+  - grpclb/grpc_lb_v1
+  - internal
+  - keepalive
+  - naming
+  - peer
+  - stats
+  - status
+  - tap
+  - transport
+testImports: []
