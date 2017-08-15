@@ -1,5 +1,5 @@
-hash: 29417935b0069c4c22bdff82d3849124338e6d807a0637b118b510f0dd8dcf5e
-updated: 2017-08-12T23:36:04.477343356+07:00
+hash: 2564ee7f3134a184b260b423288e0094b640387e79132fd9d31371a629523770
+updated: 2017-08-15T17:40:02.617614396+07:00
 imports:
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
@@ -23,7 +23,7 @@ imports:
   subpackages:
   - context
 - name: google.golang.org/genproto
-  version: 09f6ed296fc66555a25fe4ce95173148778dfa85
+  version: 6b7d9516179cd47f4714cfeb0103ad1dede756c4
   subpackages:
   - googleapis/api/annotations
 - name: google.golang.org/grpc

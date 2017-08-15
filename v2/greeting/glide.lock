@@ -1,25 +1,25 @@
-hash: f7291107d939a59561e6a924bd0fe181f6b74bba93b5db47449da1db843250f8
-updated: 2017-08-13T15:40:35.100599626+07:00
+hash: 17e541a8ea3747748fdeedafb0fee96a2391788400836132005f0e55785084dc
+updated: 2017-08-15T17:28:28.696544677+07:00
 imports:
 - name: github.com/golang/protobuf
   version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
   subpackages:
-  - jsonpb
   - proto
-  - ptypes/struct
+  - jsonpb
   - protoc-gen-go/descriptor
+  - ptypes/struct
   - ptypes/any
+- name: github.com/golovers/grpc
+  version: 1d0cf648d011d102068c59efc42dfbfcc8994fd8
+  subpackages:
+  - v2/api-golang/gr/greeting/v1
+  - v2/greeting/service
 - name: github.com/grpc-ecosystem/grpc-gateway
   version: 589b126116b5fc961939b3e156c29e4d9d58222f
   subpackages:
   - runtime
-  - runtime/internal
   - utilities
-- name: github.com/golovers/grpc
-  version: 22058a9ed79f909c96ac61a86b8449573ad12289
-  subpackages:
-  - v2/api-golang/gr/greeting/v1
-  - v2/greeting/service
+  - runtime/internal
 - name: golang.org/x/net
   version: 1c05540f6879653db88113bc4a2b70aec4bd491f
   subpackages:
@@ -43,11 +43,12 @@ imports:
   - googleapis/api/annotations
   - googleapis/rpc/status
 - name: google.golang.org/grpc
-  version: b8669c35455183da6d5c474ea6e72fbf55183274
+  version: b3ddf786825de56a4178401b7e174ee332173b66
   subpackages:
   - codes
   - grpclog
   - metadata
+  - connectivity
   - credentials
   - grpclb/grpc_lb_v1
   - internal

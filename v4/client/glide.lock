@@ -1,5 +1,5 @@
-hash: 837961d59e755cfd0ba8edaa31397792feb4dd56c0b7047f232f7a71551fcf61
-updated: 2017-08-13T21:28:55.614829097+07:00
+hash: c71a4cf15064731c979e31ef98b3486a275e7ed97d644b2d0612791b6310f6e1
+updated: 2017-08-15T17:42:59.081890947+07:00
 imports:
 - name: github.com/golang/protobuf
   version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
@@ -9,6 +9,10 @@ imports:
   - protoc-gen-go/descriptor
   - ptypes/struct
   - ptypes/any
+- name: github.com/golovers/grpc
+  version: 1d0cf648d011d102068c59efc42dfbfcc8994fd8
+  subpackages:
+  - v4/api-golang/gr/greeting/v1
 - name: github.com/grpc-ecosystem/go-grpc-prometheus
   version: 6b7015e65d366bf3f19b2b2a000a831940f0f7e0
 - name: github.com/grpc-ecosystem/grpc-gateway
@@ -23,10 +27,6 @@ imports:
   version: c5b7fccd204277076155f10851dad72b76a49317
   subpackages:
   - prometheus/promhttp
-- name: github.com/golovers/grpc
-  version: f9d96f0ee8dc38aff7cfd031bf03b12eafaaedf5
-  subpackages:
-  - v4/api-golang/gr/greeting/v1
 - name: golang.org/x/net
   version: 1c05540f6879653db88113bc4a2b70aec4bd491f
   subpackages:
@@ -38,23 +38,24 @@ imports:
   - lex/httplex
   - internal/timeseries
 - name: golang.org/x/text
-  version: b19bf474d317b857955b12035d2c5acb57ce8b01
+  version: e56139fd9c5bc7244c76116c68e500765bb6db6b
   subpackages:
   - secure/bidirule
   - unicode/norm
   - transform
   - unicode/bidi
 - name: google.golang.org/genproto
-  version: 09f6ed296fc66555a25fe4ce95173148778dfa85
+  version: 6b7d9516179cd47f4714cfeb0103ad1dede756c4
   subpackages:
   - googleapis/api/annotations
   - googleapis/rpc/status
 - name: google.golang.org/grpc
-  version: b8669c35455183da6d5c474ea6e72fbf55183274
+  version: b3ddf786825de56a4178401b7e174ee332173b66
   subpackages:
+  - credentials
   - codes
   - grpclog
-  - credentials
+  - connectivity
   - grpclb/grpc_lb_v1
   - internal
   - keepalive

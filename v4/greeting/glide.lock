@@ -1,5 +1,5 @@
-hash: 4c07d591509a991161c2f669b3cf30afbb406c14a868089a9174202faec878e8
-updated: 2017-08-12T23:39:50.798461689+07:00
+hash: 26f0be747f993761f4da9fa9fb52f8e226dcf67f6e5dad47789c2f8c274fea71
+updated: 2017-08-15T17:41:30.621211023+07:00
 imports:
 - name: github.com/beorn7/perks
   version: 4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9
@@ -8,19 +8,25 @@ imports:
 - name: github.com/golang/protobuf
   version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
   subpackages:
-  - jsonpb
   - proto
-  - ptypes/struct
+  - jsonpb
   - protoc-gen-go/descriptor
+  - ptypes/struct
   - ptypes/any
+- name: github.com/golovers/grpc
+  version: 1d0cf648d011d102068c59efc42dfbfcc8994fd8
+  subpackages:
+  - v4/api-golang/gr/greeting/v1
+  - v4/greeting/conf
+  - v4/greeting/service
 - name: github.com/grpc-ecosystem/go-grpc-prometheus
   version: 6b7015e65d366bf3f19b2b2a000a831940f0f7e0
 - name: github.com/grpc-ecosystem/grpc-gateway
   version: 589b126116b5fc961939b3e156c29e4d9d58222f
   subpackages:
   - runtime
-  - runtime/internal
   - utilities
+  - runtime/internal
 - name: github.com/matttproud/golang_protobuf_extensions
   version: c12348ce28de40eed0136aa2b644d0ee0650e56c
   subpackages:
@@ -46,11 +52,6 @@ imports:
   version: e645f4e5aaa8506fc71d6edbc5c4ff02c04c46f2
   subpackages:
   - xfs
-- name: github.com/golovers/grpc
-  version: 6d7aaabff8437cdbd211d6fe6435c2585c8af29b
-  subpackages:
-  - v4/api-golang/gr/greeting/v1
-  - v4/greeting/service
 - name: golang.org/x/net
   version: 1c05540f6879653db88113bc4a2b70aec4bd491f
   subpackages:
@@ -62,24 +63,25 @@ imports:
   - lex/httplex
   - internal/timeseries
 - name: golang.org/x/text
-  version: b19bf474d317b857955b12035d2c5acb57ce8b01
+  version: e56139fd9c5bc7244c76116c68e500765bb6db6b
   subpackages:
   - secure/bidirule
   - unicode/norm
   - transform
   - unicode/bidi
 - name: google.golang.org/genproto
-  version: 09f6ed296fc66555a25fe4ce95173148778dfa85
+  version: 6b7d9516179cd47f4714cfeb0103ad1dede756c4
   subpackages:
   - googleapis/api/annotations
   - googleapis/rpc/status
 - name: google.golang.org/grpc
-  version: b8669c35455183da6d5c474ea6e72fbf55183274
+  version: b3ddf786825de56a4178401b7e174ee332173b66
   subpackages:
+  - credentials
   - codes
   - grpclog
   - metadata
-  - credentials
+  - connectivity
   - grpclb/grpc_lb_v1
   - internal
   - keepalive
