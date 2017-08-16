@@ -10,6 +10,7 @@ import (
 	"flag"
 	"google.golang.org/grpc/credentials"
 	"crypto/tls"
+	"google.golang.org/grpc/metadata"
 )
 
 var
@@ -17,6 +18,7 @@ var
 	HTTP_ENDPOINT = flag.String("http endpoint", "https://192.168.99.100:30100", "")
 	GRPC_ENDPOINT = flag.String("grpc endpoint", "192.168.99.100:30101", "")
 	TLSServerName = "localhost"
+	JWT_TOKEN     = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE1MDc2MzY4MDAsInVzZXJuYW1lIjoicHRoZXRoYW5oIn0.aJkK2-2UI-BSkv1pAU6WamA0JIjyNoloiUiTgeRRMF0"
 )
 
 func main() {
@@ -27,18 +29,23 @@ func main() {
 		log.Fatal("Failed to daial to greeting greeting", err)
 	}
 	greetings := pb.NewGreetingsClient(conn)
-	rs, err := greetings.Say(context.Background(), &pb.GreetingRequest{
+
+	// Pass JWT for authentication
+	md := metadata.Pairs("authorization", JWT_TOKEN)
+	ctx := context.Background()
+	ctx = metadata.NewContext(ctx, md)
+	rs, err := greetings.Say(ctx, &pb.GreetingRequest{
 		Name: "Jack",
 		Type: "HPBD",
 	})
 	if err != nil {
 		log.Fatal("Fail to call to greeting greeting", err)
 	}
-	log.Println("Result from GRPC",rs)
+	log.Println("Result from GRPC", rs)
 
 	// REST
-	mTLSConfig := &tls.Config {
-		ServerName:"localhost",
+	mTLSConfig := &tls.Config{
+		ServerName: "localhost",
 	}
 
 	tr := &http.Transport{
@@ -46,10 +53,12 @@ func main() {
 	}
 
 	client := &http.Client{Transport: tr}
-	rsp,err1 := client.Get(*HTTP_ENDPOINT +"/v1/greeting")
+	req, _ := http.NewRequest("GET", *HTTP_ENDPOINT+"/v1/greeting", nil)
+	req.Header.Set("authorization", JWT_TOKEN)
 
-	if err1 != nil {
-		log.Fatal(err1)
+	rsp, err1 := client.Do(req)
+	if err1 != nil || rsp.StatusCode != http.StatusOK {
+		log.Fatal(err1, rsp.Status)
 	}
 
 	rspJson := &pb.GreetingResponse{}

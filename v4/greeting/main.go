@@ -14,6 +14,8 @@ import (
 	"net/http"
 	"github.com/golovers/grpc/v4/greeting/conf"
 	"google.golang.org/grpc/credentials"
+	"github.com/mwitkow/go-grpc-middleware/auth"
+	"github.com/golovers/grpc/v4/greeting/auth"
 )
 
 
@@ -43,11 +45,13 @@ func main() {
 		grpc.StreamInterceptor(
 			grpc_middleware.ChainStreamServer(
 				grpc_prometheus.StreamServerInterceptor,
+				grpc_auth.StreamServerInterceptor(auth.Auth),
 			),
 		),
 		grpc.UnaryInterceptor(
 			grpc_middleware.ChainUnaryServer(
 				grpc_prometheus.UnaryServerInterceptor,
+				grpc_auth.UnaryServerInterceptor(auth.Auth),
 			),
 		),
 		grpc.Creds(creds),
