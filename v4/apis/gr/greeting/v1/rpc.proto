@@ -9,6 +9,8 @@ service Greetings {
     rpc Say (GreetingRequest) returns (GreetingResponse) {
         option (google.api.http) = { get: "/v1/greeting"};
     }
+    rpc SayAlots(stream GreetingRequest) returns (stream GreetingResponse){
+    }
 }
 
 // Greeting request
@@ -27,3 +29,4 @@ message Greeting {
     string title = 1;
     string message = 2;
 }
+
