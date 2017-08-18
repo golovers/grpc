@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"errors"
-	"time"
-	"log"
 )
 
 var (
@@ -39,13 +37,8 @@ func Auth(ctx context.Context) (context.Context, error) {
 		// HMAC_SECRET is a []byte containing your secret, e.g. []byte("my_secret_key")
 		return HMAC_SECRET, nil
 	})
-
-	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		username := claims["username"].(string)
-		expireTime := claims["expire"].(float64)
-		expire := time.Unix(int64(expireTime), 0)
-		if isValidUser(username, expire) {
-			log.Println("Login successfully")
+	if claims, ok := token.Claims.(jwt.StandardClaims); ok && token.Valid {
+		if  verifyClaimInfo(claims){
 			return ctx, nil
 		} else {
 			return ctx, errors.New("Invalid token")
@@ -57,19 +50,14 @@ func Auth(ctx context.Context) (context.Context, error) {
 	return ctx, nil
 }
 
-func isValidUser(username string, expire time.Time) bool {
-	return isRegisteredUser(username) && isExpired(expire)
-}
-
-func isRegisteredUser(username string) bool {
+func verifyClaimInfo(claims jwt.StandardClaims) bool {
+	audience := claims.Audience
+	found := false
 	for _, u := range USERS {
-		if username == u {
-			return true
+		if audience == u {
+			found = true
+			break
 		}
 	}
-	return false
-}
-
-func isExpired(t time.Time) bool {
-	return t.Sub(time.Now()) > time.Duration(0*time.Second)
+	return found && claims.VerifyIssuer("golovers", true)
 }

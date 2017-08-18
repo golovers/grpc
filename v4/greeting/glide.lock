@@ -1,12 +1,14 @@
 hash: 26f0be747f993761f4da9fa9fb52f8e226dcf67f6e5dad47789c2f8c274fea71
-updated: 2017-08-15T17:41:30.621211023+07:00
+updated: 2017-08-18T13:29:26.478310032+07:00
 imports:
 - name: github.com/beorn7/perks
   version: 4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9
   subpackages:
   - quantile
+- name: github.com/dgrijalva/jwt-go
+  version: a539ee1a749a2b895533f979515ac7e6e0f5b650
 - name: github.com/golang/protobuf
-  version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
+  version: ab9f9a6dab164b7d1246e0e688b0ab7b94d8553e
   subpackages:
   - proto
   - jsonpb
@@ -14,11 +16,16 @@ imports:
   - ptypes/struct
   - ptypes/any
 - name: github.com/golovers/grpc
-  version: 1d0cf648d011d102068c59efc42dfbfcc8994fd8
+  version: eb601554ec1dd3b1468ba608c7ea1ceebc2e1d23
   subpackages:
   - v4/api-golang/gr/greeting/v1
+  - v4/greeting/auth
   - v4/greeting/conf
   - v4/greeting/service
+- name: github.com/grpc-ecosystem/go-grpc-middleware
+  version: f63a7dfb64c138bd93d5c5b896d8b33c4b08e000
+  subpackages:
+  - util/metautils
 - name: github.com/grpc-ecosystem/go-grpc-prometheus
   version: 6b7015e65d366bf3f19b2b2a000a831940f0f7e0
 - name: github.com/grpc-ecosystem/grpc-gateway
@@ -33,6 +40,8 @@ imports:
   - pbutil
 - name: github.com/mwitkow/go-grpc-middleware
   version: f63a7dfb64c138bd93d5c5b896d8b33c4b08e000
+  subpackages:
+  - auth
 - name: github.com/prometheus/client_golang
   version: c5b7fccd204277076155f10851dad72b76a49317
   subpackages:
@@ -70,7 +79,7 @@ imports:
   - transform
   - unicode/bidi
 - name: google.golang.org/genproto
-  version: 6b7d9516179cd47f4714cfeb0103ad1dede756c4
+  version: ee236bd376b077c7a89f260c026c4735b195e459
   subpackages:
   - googleapis/api/annotations
   - googleapis/rpc/status
@@ -78,9 +87,9 @@ imports:
   version: b3ddf786825de56a4178401b7e174ee332173b66
   subpackages:
   - credentials
+  - metadata
   - codes
   - grpclog
-  - metadata
   - connectivity
   - grpclb/grpc_lb_v1
   - internal

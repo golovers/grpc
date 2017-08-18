@@ -18,7 +18,7 @@ var
 	HTTP_ENDPOINT = flag.String("http endpoint", "https://192.168.99.100:30100", "")
 	GRPC_ENDPOINT = flag.String("grpc endpoint", "192.168.99.100:30101", "")
 	TLSServerName = "localhost"
-	JWT_TOKEN     = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE1MDc2MzY4MDAsInVzZXJuYW1lIjoicHRoZXRoYW5oIn0.aJkK2-2UI-BSkv1pAU6WamA0JIjyNoloiUiTgeRRMF0"
+	JWT_TOKEN     = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJwdGhldGhhbmgiLCJleHAiOjE1MDc2MzY4MDAsImlhdCI6MTUwMzAzODA5MCwiaXNzIjoiZ29sb3ZlcnMiLCJuYmYiOjE1MDMwMzgwOTAsInN1YiI6IkpXVCJ9.GoL1oqCFkH_O9WZxaSHLMq57GkEo4wof655YAKPwlOk"
 )
 
 func main() {

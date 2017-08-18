@@ -1,8 +1,8 @@
 hash: c71a4cf15064731c979e31ef98b3486a275e7ed97d644b2d0612791b6310f6e1
-updated: 2017-08-15T17:42:59.081890947+07:00
+updated: 2017-08-18T13:34:01.371330992+07:00
 imports:
 - name: github.com/golang/protobuf
-  version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
+  version: ab9f9a6dab164b7d1246e0e688b0ab7b94d8553e
   subpackages:
   - proto
   - jsonpb
@@ -10,7 +10,7 @@ imports:
   - ptypes/struct
   - ptypes/any
 - name: github.com/golovers/grpc
-  version: 1d0cf648d011d102068c59efc42dfbfcc8994fd8
+  version: eb601554ec1dd3b1468ba608c7ea1ceebc2e1d23
   subpackages:
   - v4/api-golang/gr/greeting/v1
 - name: github.com/grpc-ecosystem/go-grpc-prometheus
@@ -45,7 +45,7 @@ imports:
   - transform
   - unicode/bidi
 - name: google.golang.org/genproto
-  version: 6b7d9516179cd47f4714cfeb0103ad1dede756c4
+  version: ee236bd376b077c7a89f260c026c4735b195e459
   subpackages:
   - googleapis/api/annotations
   - googleapis/rpc/status
@@ -53,13 +53,13 @@ imports:
   version: b3ddf786825de56a4178401b7e174ee332173b66
   subpackages:
   - credentials
+  - metadata
   - codes
   - grpclog
   - connectivity
   - grpclb/grpc_lb_v1
   - internal
   - keepalive
-  - metadata
   - naming
   - peer
   - stats
