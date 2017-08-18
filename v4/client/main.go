@@ -1,20 +1,21 @@
 package main
 
 import (
-	pb "github.com/golovers/grpc/v4/api-golang/gr/greeting/v1"
-	"google.golang.org/grpc"
-	"golang.org/x/net/context"
-	"log"
-	"net/http"
+	"crypto/tls"
 	"encoding/json"
 	"flag"
+	pb "github.com/golovers/grpc/v4/api-golang/gr/greeting/v1"
+	"golang.org/x/net/context"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
-	"crypto/tls"
 	"google.golang.org/grpc/metadata"
+	"io"
+	"log"
+	"net/http"
+	"strconv"
 )
 
-var
-(
+var (
 	HTTP_ENDPOINT = flag.String("http endpoint", "https://192.168.99.100:30100", "")
 	GRPC_ENDPOINT = flag.String("grpc endpoint", "192.168.99.100:30101", "")
 	TLSServerName = "localhost"
@@ -43,6 +44,38 @@ func main() {
 	}
 	log.Println("Result from GRPC", rs)
 
+	// Streaming
+	maxMsg := 1000000000
+	stream, err := greetings.SayAlots(ctx, []grpc.CallOption{
+		grpc.MaxCallRecvMsgSize(maxMsg),
+		grpc.MaxCallSendMsgSize(maxMsg),
+	}...)
+	// start the receiver
+	go func() {
+		for {
+			if resp, err := stream.Recv(); err != nil {
+				if err == io.EOF {
+					log.Println("Finished receiving from server")
+					break
+				}
+				log.Println("Got error", err)
+			} else {
+				log.Println("Received", resp)
+			}
+		}
+	}()
+	// start the sender
+	go func() {
+		for i := 0; i < 1000; i++ {
+			log.Println("Send ", strconv.Itoa(i))
+			stream.Send(&pb.GreetingRequest{
+				Name: "Jack " + strconv.Itoa(i),
+				Type: "HPBD",
+			})
+		}
+		stream.CloseSend()
+	}()
+
 	// REST
 	mTLSConfig := &tls.Config{
 		ServerName: "localhost",
@@ -65,4 +98,7 @@ func main() {
 	json.NewDecoder(rsp.Body).Decode(rspJson)
 	log.Println("Result from REST", rspJson)
 
+	// Wait
+	ch := make(chan int)
+	<-ch
 }

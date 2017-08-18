@@ -1,5 +1,5 @@
 hash: 26f0be747f993761f4da9fa9fb52f8e226dcf67f6e5dad47789c2f8c274fea71
-updated: 2017-08-18T13:29:26.478310032+07:00
+updated: 2017-08-18T13:41:54.188785616+07:00
 imports:
 - name: github.com/beorn7/perks
   version: 4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9
@@ -16,7 +16,7 @@ imports:
   - ptypes/struct
   - ptypes/any
 - name: github.com/golovers/grpc
-  version: eb601554ec1dd3b1468ba608c7ea1ceebc2e1d23
+  version: ec5dc1aeb95f18589358c5e02814db9ee7a00692
   subpackages:
   - v4/api-golang/gr/greeting/v1
   - v4/greeting/auth
